@@ -4,6 +4,8 @@ define(['game', 'rules'], function(Game, Rules) {
 
         var game = new Game();
         game.start();
+        var board = game.getBoard();
+
 
         describe('Game board', function(){
 
@@ -19,11 +21,21 @@ define(['game', 'rules'], function(Game, Rules) {
                 expect(game.getBoard().getCols()).toEqual(10);
             });
 
+            it('Should find 3 neighbor cells', function(){
+                var cell = board.getCellByCoordinates({x: 8, y: 8, z: 0});
+                var foundNeighbors = board.getNeighbors( cell );
+                for( var i = 0 ; i < foundNeighbors.length; i++ ){
+                    for ( var key in foundNeighbors[i].getCoordinates() ) {
+                        console.log( key + ": " +  foundNeighbors[i].getCoordinates()[key] );
+                    }
+                }
+                console.log( foundNeighbors.length );
+            });
+
         });
 
         describe('Rules', function() {
 
-            var board = game.getBoard();
             var cell = board.getCellByCoordinates({x: 0, y: 1, z: 0});
             cell.setIsAlive(true);
 
@@ -49,6 +61,7 @@ define(['game', 'rules'], function(Game, Rules) {
             });
 
         });
+
 
     });
 
