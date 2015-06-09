@@ -4,6 +4,16 @@ define('gameBoard', ['cell'],  function ( Cell ) {
             this.rows = rows;
             this.cols = cols;
             this.cells = [];
+            this.cubeSearchPattern = [
+                {x: -1, y: -1, z: 0},
+                {x: 0, y: -1, z: 0},
+                {x: 1, y: -1, z: 0},
+                {x: 1, y: 0, z: 0},
+                {x: 1, y: 1, z: 0},
+                {x: 0, y: 1, z: 0},
+                {x: -1, y: 1, z: 0},
+                {x: -1, y: 0, z: 0},
+            ]
             this.init();
         };
 
@@ -27,6 +37,26 @@ define('gameBoard', ['cell'],  function ( Cell ) {
 
             getCellByIndex: function( idx ){
                 return this.cells[idx];
+            },
+
+            getCellByCoordinates: function( coords ) {
+                var foundCell, i, cell;
+                for ( i = this.cells.length - 1; i >= 0; i-- ) {
+                    cell = this.cells[i];
+                    if ( JSON.stringify(cell.getCoordinates()) === JSON.stringify(coords) ) {
+                        foundCell = cell;
+                    }
+                };
+                return foundCell;
+            },
+
+            getNeighbors: function( cell ){
+                var cellCoordinates = cell.getCoordinates();
+                return this.applySearchPatter(this.cubeSearchPattern);
+            },
+
+            applySearchPatter: function(pattern) {
+                
             },
 
             nextGeneration: function( livingCells ){
