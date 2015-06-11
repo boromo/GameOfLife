@@ -21,16 +21,16 @@ define(['game', 'rules'], function(Game, Rules) {
                 expect(game.getBoard().getCols()).toEqual(10);
             });
 
-            it('Should find 3 neighbor cells', function(){
+           /* it('Should find 3 neighbor cells', function(){
                 var cell = board.getCellByCoordinates({x: 8, y: 8, z: 0});
                 var foundNeighbors = board.getNeighbors( cell );
                 for( var i = 0 ; i < foundNeighbors.length; i++ ){
                     for ( var key in foundNeighbors[i].getCoordinates() ) {
-                        console.log( key + ": " +  foundNeighbors[i].getCoordinates()[key] );
+                        //console.log( key + ": " +  foundNeighbors[i].getCoordinates()[key] );
                     }
                 }
                 console.log( foundNeighbors.length );
-            });
+            });*/
 
         });
 

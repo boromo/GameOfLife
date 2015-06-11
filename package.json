@@ -33,6 +33,7 @@
     "grunt-karma": "*",
     "karma-chrome-launcher": "^0.1.12",
     "karma-jasmine": "*",
+    "karma-jasmine-html-reporter": "^0.1.8",
     "karma-mocha": "*",
     "karma-phantomjs-launcher": "*",
     "karma-requirejs": "^0.2.2",
