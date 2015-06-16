@@ -31,7 +31,9 @@
   },
   "devDependencies": {
     "grunt-karma": "*",
+    "karma": "^0.12.36",
     "karma-chrome-launcher": "^0.1.12",
+    "karma-coverage": "^0.4.2",
     "karma-jasmine": "*",
     "karma-jasmine-html-reporter": "^0.1.8",
     "karma-mocha": "*",
